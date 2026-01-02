@@ -1,43 +1,41 @@
 export interface NewsItem {
-    id: string;
-    title: string;
-    date: string;
-    category: string;
-    content: string;
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  content: string;
 }
 
 export const newsData: NewsItem[] = [
-    {
-        id: "1",
-        title: "株式会社peaceful 設立",
-        date: "2025.10.01",
-        category: "Corporate",
-        content: `
+  {
+    id: "1",
+    title: "株式会社peaceful 設立",
+    date: "2025.10.01",
+    category: "Corporate",
+    content: `
       <p class="mb-6">
-        私たちは本日、株式会社peacefulを設立いたしました。
+        本日、株式会社peacefulを設立いたしました。
       </p>
       <p class="mb-6">
-        「テクノロジーで、静寂と安らぎを再定義する」をミッションに掲げ、
-        Deep Techを用いたメンタルヘルスケアソリューションの開発・提供を行ってまいります。
+        我々は、医療現場の「崩壊」を座して待つのではなく、テクノロジーによる「再構築」を選択したDeep Techスタートアップです。
       </p>
       <p class="mb-6">
-        現代社会における情報の氾濫と加速するストレス社会に対し、
-        脳科学と最新のAI技術を融合させた非侵襲的なアプローチで、
-        人々が本来持っている「心の平穏」を取り戻すためのプロダクトを開発します。
+        代表の陣之内が臨床現場で目の当たりにしたのは、高度な専門性を持つ医療従事者が、非効率的な「本質ではない業務」に忙殺され、患者と向き合う時間を奪われている現実でした。
+      </p>
+      <p class="mb-6">
+        「AIとロボティクスで、持続可能な医療インフラを再構築する」
       </p>
       <p>
-        創業メンバーは、神経科学、機械学習、デザインの専門家で構成されており、
-        科学的根拠に基づいたアプローチと、人の心に寄り添うデザインの融合を目指します。
-        今後の活動にぜひご期待ください。
+        このミッションの下、我々はAIエージェントとロボティクス技術を駆使し、持続可能な次世代の医療インフラを実装します。現場の痛みを知る当事者として、医療のあり方を根底から変革する挑戦にご期待ください。
       </p>
     `,
-    },
-    {
-        id: "2",
-        title: "三菱総合研究所『未来共創イニシアティブ(ICF)』に参画",
-        date: "2025.11.06",
-        category: "Partnership",
-        content: `
+  },
+  {
+    id: "2",
+    title: "三菱総合研究所『未来共創イニシアティブ(ICF)』に参画",
+    date: "2025.11.06",
+    category: "Partnership",
+    content: `
       <p class="mb-6">
         株式会社peacefulは、株式会社三菱総合研究所が主宰する
         『未来共創イニシアティブ（ICF: Initiative for Co-creating the Future）』に参画いたしました。
@@ -53,13 +51,13 @@ export const newsData: NewsItem[] = [
         Well-beingな社会の実現に向けた具体的なアクションを加速させてまいります。
       </p>
     `,
-    },
-    {
-        id: "3",
-        title: "神戸市アクセラレーター『Be start KOBE』に採択",
-        date: "2025.11.27",
-        category: "Award",
-        content: `
+  },
+  {
+    id: "3",
+    title: "神戸市アクセラレーター『Be start KOBE』に採択",
+    date: "2025.11.27",
+    category: "Award",
+    content: `
       <p class="mb-6">
         神戸市が主催するスタートアップ支援プログラム『Be start KOBE』の第5期採択企業に選出されました。
       </p>
@@ -76,5 +74,5 @@ export const newsData: NewsItem[] = [
         神戸から世界へ、メンタルヘルスケアの新しいスタンダードを発信してまいります。
       </p>
     `,
-    },
+  },
 ];
