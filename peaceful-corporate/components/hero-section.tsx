@@ -18,7 +18,7 @@ export default function HeroSection() {
 
   return (
     <section className="flex min-h-screen items-center justify-center px-8">
-      <div className="max-w-5xl text-center">
+      <div className="w-full max-w-4xl mx-auto text-center">
         {messages.map((message, index) => (
           <h1
             key={index}
@@ -35,14 +35,14 @@ export default function HeroSection() {
         ))}
         {/* Mission Statement */}
         <div
-          className={`mt-16 text-center transition-all duration-1000 delay-500 ${visibleLines.length === messages.length ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          className={`mt-10 text-center transition-all duration-1000 delay-500 ${visibleLines.length === messages.length ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
         >
-          <div className="flex flex-col gap-2 font-bold text-neon-blue/90" style={{ textShadow: "0 0 20px rgba(96, 165, 250, 0.3)" }}>
-            <p className="text-lg md:text-xl tracking-widest">
+          <div className="flex flex-col gap-2 font-bold text-white/90">
+            <p className="text-base md:text-lg tracking-widest">
               AIとロボティクスで、持続可能な医療インフラを再構築する。
             </p>
-            <p className="text-xl md:text-2xl tracking-widest mt-2">
+            <p className="text-lg md:text-xl tracking-widest mt-1">
               看護師向けAIエージェント &quot;NURVIS&quot;
             </p>
           </div>
