@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { Menu, X } from "lucide-react"
 
 const navItems = [
   { name: "Vision", href: "/vision" },
@@ -14,6 +15,7 @@ const navItems = [
 
 export default function Header() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-8 py-6">
@@ -21,13 +23,21 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tight text-foreground transition-colors hover:text-neon-blue"
+          className="text-2xl font-bold tracking-tight text-foreground transition-colors hover:text-neon-blue relative z-50"
         >
           peaceful
         </Link>
 
-        {/* Navigation Menu */}
-        <ul className="flex items-center gap-8">
+        {/* Mobile Menu Toggle */}
+        <button
+          className="block md:hidden relative z-50 text-foreground hover:text-neon-blue transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <li key={item.name}>
               <Link
@@ -45,6 +55,27 @@ export default function Header() {
             </li>
           ))}
         </ul>
+
+        {/* Mobile Navigation Overlay */}
+        <div
+          className={`fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 backdrop-blur-md transition-all duration-300 md:hidden ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+            }`}
+        >
+          <ul className="flex flex-col items-center gap-8">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className="text-2xl font-bold tracking-tight text-foreground/80 transition-colors hover:text-neon-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </header>
   )

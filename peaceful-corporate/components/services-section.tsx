@@ -44,10 +44,10 @@ export default function ServicesSection() {
                     Services
                 </h2>
 
-                <div className="grid gap-12 md:grid-cols-2">
+                <div className="grid gap-8 md:gap-12 grid-cols-1 md:grid-cols-2">
                     {/* Service 1: NURVIS */}
                     <div
-                        className={`group flex flex-col justify-between rounded-lg border border-neon-blue/20 bg-card/50 p-8 backdrop-blur-sm transition-all duration-700 hover:border-neon-blue/60 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+                        className={`group flex flex-col justify-between rounded-lg border border-neon-blue/20 bg-card/50 p-6 md:p-8 backdrop-blur-sm transition-all duration-700 hover:border-neon-blue/60 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                             }`}
                         style={{ transitionDelay: "300ms" }}
                     >
@@ -67,7 +67,7 @@ export default function ServicesSection() {
 
                     {/* Service 2: Giga-Hospital */}
                     <div
-                        className={`group flex flex-col justify-between rounded-lg border border-neon-blue/20 bg-card/50 p-8 backdrop-blur-sm transition-all duration-700 hover:border-neon-blue/60 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+                        className={`group flex flex-col justify-between rounded-lg border border-neon-blue/20 bg-card/50 p-6 md:p-8 backdrop-blur-sm transition-all duration-700 hover:border-neon-blue/60 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                             }`}
                         style={{ transitionDelay: "500ms" }}
                     >

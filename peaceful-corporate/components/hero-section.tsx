@@ -22,9 +22,8 @@ export default function HeroSection() {
         {messages.map((message, index) => (
           <h1
             key={index}
-            className={`font-bold leading-tight tracking-tight text-foreground transition-all duration-1000 text-4xl md:text-5xl lg:text-6xl mb-4 ${
-              visibleLines.includes(index) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
+            className={`font-bold leading-tight tracking-tight text-foreground transition-all duration-1000 text-3xl md:text-5xl lg:text-6xl mb-4 ${visibleLines.includes(index) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              }`}
             style={{
               textShadow: visibleLines.includes(index)
                 ? "0 0 30px rgba(96, 165, 250, 0.4), 0 0 60px rgba(96, 165, 250, 0.2), 0 0 90px rgba(96, 165, 250, 0.1)"
