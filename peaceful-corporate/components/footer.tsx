@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Footer() {
     return (
@@ -7,8 +8,14 @@ export default function Footer() {
 
                 {/* Logo & Address */}
                 <div className="text-center md:text-left">
-                    <Link href="/" className="text-2xl font-bold tracking-tight text-foreground transition-colors hover:text-neon-blue">
-                        peaceful
+                    <Link href="/" className="inline-block transition-opacity hover:opacity-80">
+                        <Image
+                            src="/logo.png"
+                            alt="peaceful"
+                            width={150}
+                            height={42}
+                            className="h-7 w-auto md:h-10 object-contain"
+                        />
                     </Link>
                     <address className="mt-4 not-italic text-sm text-foreground/60">
                         株式会社peaceful<br />
