@@ -23,6 +23,16 @@ export default function Footer() {
                     </address>
                 </div>
 
+                {/* Our Business */}
+                <div className="text-center md:text-left">
+                    <h3 className="mb-4 text-sm font-bold text-foreground">Our Business</h3>
+                    <ul className="space-y-2 text-sm text-foreground/60">
+                        <li>医療・介護向けAIシステムの開発</li>
+                        <li>医療ロボティクス研究開発</li>
+                        <li>医療DXコンサルティング</li>
+                    </ul>
+                </div>
+
                 {/* Navigation */}
                 <nav className="flex flex-wrap justify-center gap-8 md:justify-end">
                     <Link href="/vision" className="text-sm font-medium text-foreground/80 hover:text-neon-blue transition-colors">
