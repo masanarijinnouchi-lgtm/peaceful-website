@@ -33,6 +33,20 @@ export default function HeroSection() {
             {message}
           </h1>
         ))}
+        {/* Mission Statement */}
+        <div
+          className={`mt-16 text-center transition-all duration-1000 delay-500 ${visibleLines.length === messages.length ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+        >
+          <div className="flex flex-col gap-2 font-bold text-neon-blue/90" style={{ textShadow: "0 0 20px rgba(96, 165, 250, 0.3)" }}>
+            <p className="text-lg md:text-xl tracking-widest">
+              AIとロボティクスで、持続可能な医療インフラを再構築する。
+            </p>
+            <p className="text-xl md:text-2xl tracking-widest mt-2">
+              看護師向けAIエージェント &quot;NURVIS&quot;
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )
