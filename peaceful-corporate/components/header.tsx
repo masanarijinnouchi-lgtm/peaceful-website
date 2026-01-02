@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 
@@ -23,9 +24,16 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tight text-foreground transition-colors hover:text-neon-blue relative z-50"
+          className="relative z-50 transition-opacity hover:opacity-80"
         >
-          peaceful
+          <Image
+            src="/logo.png"
+            alt="peaceful"
+            width={180}
+            height={50}
+            className="h-8 w-auto md:h-12 object-contain"
+            priority
+          />
         </Link>
 
         {/* Mobile Menu Toggle */}
