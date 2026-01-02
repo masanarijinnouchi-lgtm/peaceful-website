@@ -9,6 +9,7 @@ const navItems = [
   { name: "Giga-Hospital", href: "/giga-hospital" },
   { name: "Company", href: "/company" },
   { name: "News", href: "/news" },
+  { name: "Contact", href: "https://forms.gle/nFwkK24V1MNS1EL18", external: true },
 ]
 
 export default function Header() {
@@ -34,6 +35,7 @@ export default function Header() {
                 className="relative text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground"
                 onMouseEnter={() => setHoveredItem(item.name)}
                 onMouseLeave={() => setHoveredItem(null)}
+                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
                 {item.name}
                 {hoveredItem === item.name && (
