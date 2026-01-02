@@ -3,19 +3,9 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
-interface NewsItem {
-    date: string
-    title: string
-    href: string
-}
+import { newsData } from "@/lib/news-data"
 
-const newsItems: NewsItem[] = [
-    {
-        date: "2025.10.01",
-        title: "マニフェスト：我々が描く、次世代医療の設計図『Giga-Hospital』",
-        href: "/news", // Linking to the news page for details
-    },
-]
+const displayedNews = newsData.slice(0, 3)
 
 export default function NewsSection() {
     const [isVisible, setIsVisible] = useState(false)
@@ -57,18 +47,13 @@ export default function NewsSection() {
                     >
                         News
                     </h2>
-                    <Link
-                        href="/news"
-                        className={`text-xs md:text-sm font-medium tracking-widest text-neon-blue transition-all duration-1000 hover:text-white delay-300 ${isVisible ? "opacity-100" : "opacity-0"
-                            }`}
-                    >
-                        VIEW ALL
-                    </Link>
+
                 </div>
 
                 <div className="space-y-6 border-l-2 border-neon-blue/30 pl-4 md:pl-6">
-                    {newsItems.map((item, index) => (
-                        <Link key={index} href={item.href} className="group block">
+
+                    {displayedNews.map((item, index) => (
+                        <Link key={item.id} href={`/news/${item.id}`} className="group block">
                             <article
                                 className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                                     }`}
@@ -85,6 +70,17 @@ export default function NewsSection() {
                             </article>
                         </Link>
                     ))}
+                </div>
+
+                <div className={`mt-10 flex justify-center transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}>
+                    <Link
+                        href="/news"
+                        className="group relative px-6 py-2 text-sm font-medium text-white transition-all hover:text-neon-blue"
+                    >
+                        <span className="relative z-10">VIEW ALL NEWS</span>
+                        <span className="absolute inset-0 border border-white/20 transition-all group-hover:border-neon-blue/50"></span>
+                        <span className="absolute inset-0 bg-white/5 opacity-0 transition-all group-hover:opacity-100"></span>
+                    </Link>
                 </div>
             </div>
         </section>
