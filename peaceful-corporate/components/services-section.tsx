@@ -3,8 +3,10 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { ArrowRight } from "lucide-react"
+import { useLanguage } from "@/components/language-context"
 
 export default function ServicesSection() {
+    const { lang } = useLanguage()
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
@@ -53,9 +55,21 @@ export default function ServicesSection() {
                     >
                         <div>
                             <h3 className="mb-4 text-3xl font-bold text-neon-blue group-hover:text-white transition-colors">NURVIS</h3>
+                            <h4 className="mb-2 text-xl font-semibold text-white">
+                                {lang === 'ja' ? '看護師向けウェアラブルAIエージェント' : 'Wearable AI Agent for Nurses'}
+                            </h4>
                             <p className="mb-6 text-lg leading-relaxed text-foreground/80">
-                                看護師の能力を拡張するAIエージェント。あなたの「第二の脳」として、常に隣で思考を続ける能動的なパートナー。
+                                {lang === 'ja'
+                                    ? '看護師の能力を拡張するAIエージェント。あなたの「第二の脳」として、常に隣で思考を続ける能動的なパートナー。'
+                                    : 'Liberation from Documentation. Return to Care.'}
                             </p>
+                            {lang === 'en' && (
+                                <ul className="list-disc list-inside text-foreground/80 space-y-1 mb-6">
+                                    <li>Voice Logging: Zero-touch documentation via automated transcription & summarization.</li>
+                                    <li>Operation Support: Hands-free protocol access and instant communication.</li>
+                                    <li>Behavior Analysis: Accelerating skill transfer by learning from expert nurses&apos; FPP data.</li>
+                                </ul>
+                            )}
                         </div>
                         <Link
                             href="/product"
@@ -74,7 +88,9 @@ export default function ServicesSection() {
                         <div>
                             <h3 className="mb-4 text-3xl font-bold text-neon-blue group-hover:text-white transition-colors">Giga-Hospital</h3>
                             <p className="mb-6 text-lg leading-relaxed text-foreground/80">
-                                自己進化する医療エコシステム。街全体を一つの生命体として見立て、予防から予後までをシームレスに繋ぐ。
+                                {lang === 'ja'
+                                    ? '自己進化する医療エコシステム。街全体を一つの生命体として見立て、予防から予後までをシームレスに繋ぐ。'
+                                    : 'Self-evolving healthcare ecosystem. Viewing the entire city as a single living organism, seamlessly connecting everything from prevention to prognosis.'}
                             </p>
                         </div>
                         <Link

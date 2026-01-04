@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react"
 import { ArrowRight, Mail } from "lucide-react"
+import { useLanguage } from "@/components/language-context"
 
 export default function ContactSection() {
+    const { lang } = useLanguage()
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
@@ -47,10 +49,16 @@ export default function ContactSection() {
                     className={`mb-12 text-base md:text-lg text-foreground/80 md:text-xl transition-all duration-1000 delay-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                 >
-                    未来の医療を共に築くパートナーをお待ちしています。
-                    <br className="block md:hidden" />
-                    <br className="hidden md:block" />
-                    お気軽にお問い合わせください。
+                    {lang === 'ja' ? (
+                        <>
+                            未来の医療を共に築くパートナーをお待ちしています。
+                            <br className="block md:hidden" />
+                            <br className="hidden md:block" />
+                            お気軽にお問い合わせください。
+                        </>
+                    ) : (
+                        "For partnership, investment, or recruitment inquiries."
+                    )}
                 </p>
 
                 <a
@@ -60,7 +68,7 @@ export default function ContactSection() {
                     style={{ transitionDelay: "600ms" }}
                 >
                     <Mail className="h-6 w-6" />
-                    <span>CONTACT US</span>
+                    <span>{lang === 'ja' ? 'CONTACT US' : 'Contact Us'}</span>
                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
             </div>

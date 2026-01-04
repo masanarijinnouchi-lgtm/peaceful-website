@@ -1,7 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
+import { useLanguage } from "@/components/language-context"
 
 export default function Footer() {
+    const { lang } = useLanguage()
+
     return (
         <footer className="relative z-10 border-t border-neon-blue/20 bg-background px-8 py-12">
             <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 md:flex-row">
@@ -18,8 +21,16 @@ export default function Footer() {
                         />
                     </Link>
                     <address className="mt-4 not-italic text-sm text-foreground/60">
-                        株式会社peaceful<br />
-                        東京都練馬区
+                        {lang === 'ja' ? (
+                            <>
+                                株式会社peaceful<br />
+                                東京都練馬区
+                            </>
+                        ) : (
+                            <>
+                                Nerima-ku, Tokyo / CEO: Masanari Jinnouchi
+                            </>
+                        )}
                     </address>
                 </div>
 
@@ -27,9 +38,19 @@ export default function Footer() {
                 <div className="text-center md:text-left">
                     <h3 className="mb-4 text-sm font-bold text-foreground">Our Business</h3>
                     <ul className="space-y-2 text-sm text-foreground/60">
-                        <li>医療・介護向けAIシステムの開発</li>
-                        <li>医療ロボティクス研究開発</li>
-                        <li>医療DXコンサルティング</li>
+                        {lang === 'ja' ? (
+                            <>
+                                <li>医療・介護向けAIシステムの開発</li>
+                                <li>医療ロボティクス研究開発</li>
+                                <li>医療DXコンサルティング</li>
+                            </>
+                        ) : (
+                            <>
+                                <li>AI System Development for Medical & Nursing Care</li>
+                                <li>Medical Robotics R&D</li>
+                                <li>Medical DX Consulting</li>
+                            </>
+                        )}
                     </ul>
                 </div>
 

@@ -6,19 +6,19 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { useLanguage } from "@/components/language-context"
 
-const navItems = [
-  { name: "Vision", href: "/vision" },
-  { name: "Product", href: "/product" },
-  { name: "Giga-Hospital", href: "/giga-hospital" },
-  { name: "Company", href: "/company" },
-  { name: "News", href: "/news" },
-  { name: "Contact", href: "https://forms.gle/nFwkK24V1MNS1EL18", external: true },
-]
-
 export default function Header() {
   const { lang, setLang } = useLanguage()
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navItems = [
+    { name: lang === 'ja' ? 'Vision' : 'Vision', href: "/vision" },
+    { name: lang === 'ja' ? 'Product' : 'Product', href: "/product" },
+    { name: lang === 'ja' ? 'Giga-Hospital' : 'Giga-Hospital', href: "/giga-hospital" },
+    { name: lang === 'ja' ? 'Company' : 'Company', href: "/company" },
+    { name: lang === 'ja' ? 'News' : 'News', href: "/news" },
+    { name: lang === 'ja' ? 'Contact' : 'Contact', href: "https://forms.gle/nFwkK24V1MNS1EL18", external: true },
+  ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-8 py-6">
