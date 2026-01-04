@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
@@ -6,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { newsData } from "@/lib/news-data"
+import { useLanguage } from "@/components/language-context"
 
 interface NewsDetailPageProps {
     params: {
@@ -13,6 +16,7 @@ interface NewsDetailPageProps {
     }
 }
 
+// NOTE: generateStaticParams works with Client Components in Next.js App Router
 export function generateStaticParams() {
     return newsData.map((news) => ({
         id: news.id,
@@ -21,6 +25,7 @@ export function generateStaticParams() {
 
 export default function NewsDetailPage({ params }: NewsDetailPageProps) {
     const newsItem = newsData.find((item) => item.id === params.id)
+    const { lang } = useLanguage()
 
     if (!newsItem) {
         notFound()
@@ -35,7 +40,9 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
                     <Button variant="ghost" asChild className="group mb-12 pl-0 text-gray-400 hover:bg-transparent hover:text-white">
                         <Link href="/" className="flex items-center gap-2">
                             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                            <span className="text-sm font-medium tracking-wider">BACK TO HOME</span>
+                            <span className="text-sm font-medium tracking-wider">
+                                {lang === 'en' ? "BACK TO HOME" : "ホームに戻る"}
+                            </span>
                         </Link>
                     </Button>
 
@@ -49,14 +56,14 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
                         </div>
 
                         <h1 className="mb-12 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl text-glow-white">
-                            {newsItem.title}
+                            {lang === 'en' ? newsItem.titleEn : newsItem.title}
                         </h1>
 
                         <div
                             className="prose prose-invert prose-lg max-w-none 
               prose-p:leading-relaxed prose-p:text-gray-300 prose-p:font-light 
               text-justify break-words"
-                            dangerouslySetInnerHTML={{ __html: newsItem.content }}
+                            dangerouslySetInnerHTML={{ __html: lang === 'en' ? newsItem.contentEn : newsItem.content }}
                         />
                     </article>
                 </div>

@@ -4,11 +4,13 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 
 import { newsData } from "@/lib/news-data"
+import { useLanguage } from "@/components/language-context"
 
 const displayedNews = newsData.slice(0, 3)
 
 export default function NewsSection() {
     const [isVisible, setIsVisible] = useState(false)
+    const { lang } = useLanguage()
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -64,7 +66,7 @@ export default function NewsSection() {
                                         {item.date}
                                     </time>
                                     <h3 className="text-lg md:text-xl md:text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-neon-blue">
-                                        {item.title}
+                                        {lang === 'en' ? item.titleEn : item.title}
                                     </h3>
                                 </div>
                             </article>
@@ -77,7 +79,7 @@ export default function NewsSection() {
                         href="/news"
                         className="group relative px-6 py-2 text-sm font-medium text-white transition-all hover:text-neon-blue"
                     >
-                        <span className="relative z-10">VIEW ALL NEWS</span>
+                        <span className="relative z-10">{lang === 'en' ? "VIEW ALL NEWS" : "ニュース一覧"}</span>
                         <span className="absolute inset-0 border border-white/20 transition-all group-hover:border-neon-blue/50"></span>
                         <span className="absolute inset-0 bg-white/5 opacity-0 transition-all group-hover:opacity-100"></span>
                     </Link>
