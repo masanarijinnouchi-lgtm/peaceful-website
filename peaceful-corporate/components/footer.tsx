@@ -77,7 +77,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-12 text-center text-xs text-foreground/40">
-                &copy; {new Date().getFullYear()} peaceful Inc. All rights reserved.
+                &copy; 2025 peaceful Inc. All rights reserved.
             </div>
         </footer>
     )
