@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/components/language-context"
 
 const navItems = [
   { name: "Vision", href: "/vision" },
@@ -15,6 +16,7 @@ const navItems = [
 ]
 
 export default function Header() {
+  const { lang, setLang } = useLanguage()
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -62,6 +64,21 @@ export default function Header() {
               </Link>
             </li>
           ))}
+          <li className="flex items-center gap-2 text-sm font-medium">
+            <button
+              onClick={() => setLang('ja')}
+              className={`transition-colors ${lang === 'ja' ? 'text-neon-blue' : 'text-foreground/60 hover:text-foreground'}`}
+            >
+              JP
+            </button>
+            <span className="text-foreground/40">/</span>
+            <button
+              onClick={() => setLang('en')}
+              className={`transition-colors ${lang === 'en' ? 'text-neon-blue' : 'text-foreground/60 hover:text-foreground'}`}
+            >
+              EN
+            </button>
+          </li>
         </ul>
 
         {/* Mobile Navigation Overlay */}
