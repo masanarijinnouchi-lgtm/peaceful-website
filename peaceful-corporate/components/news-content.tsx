@@ -3,8 +3,11 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { newsData } from "@/lib/news-data"
 
+import { useLanguage } from "@/components/language-context"
+
 export default function NewsContent() {
   const [isVisible, setIsVisible] = useState(false)
+  const { lang } = useLanguage()
 
   useEffect(() => {
     setIsVisible(true)
@@ -23,7 +26,7 @@ export default function NewsContent() {
               : "none",
           }}
         >
-          News
+          {lang === 'en' ? 'News' : 'ニュース一覧'}
         </h1>
       </div>
 
@@ -40,11 +43,11 @@ export default function NewsContent() {
                 {item.date}
               </time>
               <h2 className="mb-4 text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-neon-blue md:text-3xl">
-                {item.title}
+                {lang === 'en' ? item.titleEn : item.title}
               </h2>
               <div
                 className="text-base leading-relaxed text-foreground/80 md:text-lg line-clamp-2"
-                dangerouslySetInnerHTML={{ __html: item.content }}
+                dangerouslySetInnerHTML={{ __html: lang === 'en' ? item.contentEn : item.content }}
               />
             </article>
           </Link>
