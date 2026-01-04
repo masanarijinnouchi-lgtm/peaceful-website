@@ -99,6 +99,27 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+            <li className="flex items-center gap-4 text-xl font-bold mt-4">
+              <button
+                onClick={() => {
+                  setLang('ja')
+                  setIsMenuOpen(false)
+                }}
+                className={`transition-colors ${lang === 'ja' ? 'text-neon-blue' : 'text-foreground/60 hover:text-foreground'}`}
+              >
+                JP
+              </button>
+              <span className="text-foreground/40">/</span>
+              <button
+                onClick={() => {
+                  setLang('en')
+                  setIsMenuOpen(false)
+                }}
+                className={`transition-colors ${lang === 'en' ? 'text-neon-blue' : 'text-foreground/60 hover:text-foreground'}`}
+              >
+                EN
+              </button>
+            </li>
           </ul>
         </div>
       </nav>
