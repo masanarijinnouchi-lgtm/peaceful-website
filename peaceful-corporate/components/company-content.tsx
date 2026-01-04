@@ -5,6 +5,7 @@ import { useLanguage } from "@/components/language-context"
 
 export default function CompanyContent() {
   const [isVisible, setIsVisible] = useState(false)
+  const { lang } = useLanguage()
 
   useEffect(() => {
     setIsVisible(true)
