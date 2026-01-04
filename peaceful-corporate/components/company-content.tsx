@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useLanguage } from "@/components/language-context"
 
 export default function CompanyContent() {
   const [isVisible, setIsVisible] = useState(false)
@@ -14,9 +15,8 @@ export default function CompanyContent() {
       {/* Page Title */}
       <div className="mb-20 w-full max-w-5xl">
         <h1
-          className={`text-center font-bold tracking-tight transition-all duration-1500 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          } text-4xl md:text-5xl lg:text-6xl`}
+          className={`text-center font-bold tracking-tight transition-all duration-1500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            } text-4xl md:text-5xl lg:text-6xl`}
           style={{
             textShadow: isVisible
               ? "0 0 20px rgba(96, 165, 250, 0.4), 0 0 40px rgba(96, 165, 250, 0.2), 0 0 60px rgba(96, 165, 250, 0.1)"
@@ -33,9 +33,8 @@ export default function CompanyContent() {
       <div className="w-full max-w-4xl space-y-16">
         {/* CEO Message Section */}
         <section
-          className={`transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`transition-all duration-1000 delay-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
         >
           <div className="mb-6">
             <h2 className="text-2xl font-bold tracking-tight text-neon-blue md:text-3xl">代表メッセージ</h2>
@@ -47,9 +46,8 @@ export default function CompanyContent() {
 
         {/* Philosophy Section */}
         <section
-          className={`transition-all duration-1000 delay-500 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
         >
           <div className="mb-6">
             <h2 className="text-2xl font-bold tracking-tight text-neon-blue md:text-3xl">我々の哲学</h2>
@@ -61,9 +59,8 @@ export default function CompanyContent() {
 
         {/* Company Info Section */}
         <section
-          className={`transition-all duration-1000 delay-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`transition-all duration-1000 delay-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
         >
           <div className="mb-6">
             <h2 className="text-2xl font-bold tracking-tight text-neon-blue md:text-3xl">会社概要</h2>
